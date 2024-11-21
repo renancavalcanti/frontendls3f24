@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Update Task Status</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-check mb-3">
+            <input type="checkbox" name="done" id="done" class="form-check-input mt-5" {% if task.done %}checked{% endif %}>
+            <label for="done" class="form-check-label mt-5">Mark as Completed</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Status</button>
+        <a href="{% url 'view_task_assigned' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}
